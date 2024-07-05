@@ -18,8 +18,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.Objects;
 
 public class MultiLinesChart extends JFrame {
 
@@ -42,8 +40,8 @@ public class MultiLinesChart extends JFrame {
     @SneakyThrows
     public void saveChartAsPNG() {
         ChartUtils.saveChartAsPNG(new File(file.getParent()
-                                                   .toFile()
-                                                   .getAbsolutePath() + File.separator + getFileNameWithoutExtension() + ".png"),
+                        .toFile()
+                        .getAbsolutePath() + File.separator + getFileNameWithoutExtension() + ".png"),
                 chart,
                 WIDTH,
                 HEIGHT);
@@ -71,9 +69,7 @@ public class MultiLinesChart extends JFrame {
         XYSeries watts = new XYSeries("Watts");
         XYSeries incline = new XYSeries("Incline");
 
-        try (BufferedReader bufferedReader = Files.newBufferedReader(Paths.get(Objects.requireNonNull(Main.class.getClassLoader()
-                        .getResource("example.csv"))
-                .toURI()))) {
+        try (BufferedReader bufferedReader = Files.newBufferedReader(file)) {
             CSVFormat.Builder.create(CSVFormat.DEFAULT)
                     .setHeader("LEVEL", "SPM", "WATTS", "INCLINE", "HR", "TIME", "CALORIES", "DISTANCE")
                     .setSkipHeaderRecord(true)
