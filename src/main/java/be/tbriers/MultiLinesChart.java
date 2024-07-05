@@ -1,6 +1,5 @@
 package be.tbriers;
 
-import lombok.Getter;
 import lombok.SneakyThrows;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.lang3.StringUtils;
@@ -22,9 +21,10 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Objects;
 
-@Getter
 public class MultiLinesChart extends JFrame {
 
+    private static final int WIDTH = 1024;
+    private static final int HEIGHT = 768;
     private JFreeChart chart;
     private final Path file;
 
@@ -34,7 +34,7 @@ public class MultiLinesChart extends JFrame {
         this.file = file;
 
         add(createChartPanel(), BorderLayout.CENTER);
-        setSize(1024, 768);
+        setSize(WIDTH, HEIGHT);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
     }
@@ -45,8 +45,8 @@ public class MultiLinesChart extends JFrame {
                                                    .toFile()
                                                    .getAbsolutePath() + File.separator + getFileNameWithoutExtension() + ".png"),
                 chart,
-                1024,
-                768);
+                WIDTH,
+                HEIGHT);
     }
 
     @SneakyThrows
