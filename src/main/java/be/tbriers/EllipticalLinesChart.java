@@ -19,7 +19,7 @@ import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-public class MultiLinesChart extends JFrame {
+public class EllipticalLinesChart extends JFrame {
 
     private static final int WIDTH = 1024;
     private static final int HEIGHT = 768;
@@ -27,7 +27,7 @@ public class MultiLinesChart extends JFrame {
     private final Path file;
 
     @SneakyThrows
-    public MultiLinesChart(Path file) {
+    public EllipticalLinesChart(Path file) {
         super("Crosstrainer");
         this.file = file;
 

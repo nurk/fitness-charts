@@ -22,14 +22,14 @@ public class Main extends JFrame {
             if (args.length == 0) {
                 files.forEach(file -> {
                     System.out.println(file.toString());
-                    MultiLinesChart multiLinesChart = new MultiLinesChart(file);
-                    multiLinesChart.saveChartAsPNG();
+                    EllipticalLinesChart ellipticalLinesChart = new EllipticalLinesChart(file);
+                    ellipticalLinesChart.saveChartAsPNG();
                 });
             } else {
                 SwingUtilities.invokeLater(() -> {
-                    MultiLinesChart multiLinesChart = new MultiLinesChart(files.getFirst());
-                    multiLinesChart.setVisible(true);
-                    multiLinesChart.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+                    EllipticalLinesChart ellipticalLinesChart = new EllipticalLinesChart(files.getFirst());
+                    ellipticalLinesChart.setVisible(true);
+                    ellipticalLinesChart.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
                 });
             }
         }
