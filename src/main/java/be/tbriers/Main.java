@@ -12,6 +12,7 @@ public class Main extends JFrame {
 
     @SneakyThrows
     public static void main(String[] args) {
+        //try (Stream<Path> walk = Files.walk(Path.of("D:\\ELLIPT\\WKO_DATA"))) {
         try (Stream<Path> walk = Files.walk(Path.of("/Volumes/NO NAME/ELLIPT/WKO_DATA"))) {
             List<Path> files = walk
                     .filter(Files::isRegularFile)
