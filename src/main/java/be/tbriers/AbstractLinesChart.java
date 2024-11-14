@@ -140,11 +140,10 @@ public abstract class AbstractLinesChart extends JFrame {
                     .setSkipHeaderRecord(true)
                     .build()
                     .parse(bufferedReader)
-                    .forEach(record -> {
-                        getSeries().forEach((key, value) -> series.get(key)
-                                .add(Double.valueOf(record.get("TIME")),
-                                        Double.valueOf(record.get(value))));
-                    });
+                    .forEach(record -> getSeries().forEach(
+                            (key, value) -> series.get(key)
+                                    .add(Double.valueOf(record.get("TIME")),
+                                            Double.valueOf(record.get(value)))));
         }
 
         series.forEach((stringComparable, xySeries) -> dataset.addSeries(xySeries));
